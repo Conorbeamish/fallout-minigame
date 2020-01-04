@@ -1,17 +1,25 @@
 document.addEventListener("DOMContentLoaded", function(){
     const numWords = 5;
-    var numGuess = 4;
+    var numGuess = 3;
     var password = " ";
-
+    var difficulty = easy;
+   
     var start = document.getElementById("start-game");
     start.addEventListener("click", () => {
+        toggleClasses(document.getElementById('start-game'), 'hide', 'show');
+        toggleClasses(document.getElementById('game-board'), 'hide', 'show');
+        // checkDifficulty();
         startGame();
     });
     
     function getValues(array, numVals){
         return shuffle(array).slice(0, numVals);
     }
-    
+
+    function toggleClasses(element, ...classNames) {
+        classNames.forEach(name => element.classList.toggle(name));
+    }
+
     function shuffle(array){
         var arrayCopy = array.slice();
         for (let i = arrayCopy.length - 1; i > 0;  i--){
@@ -21,14 +29,71 @@ document.addEventListener("DOMContentLoaded", function(){
         return arrayCopy
     }
 
+    // function checkDifficulty(){
+    //     var difficultySelector = document.getElementsByName("difficulty");
+    //         for(let i = 0; i < difficultySelector.length; i++){
+    //             if(difficultySelector[i].checked) {
+    //                 difficulty = difficultySelector.value;
+    //             }
+    //         }
+    //     console.log(difficulty)
+    //     return difficulty;
+    // }
+
     function startGame(){
         var wordList = document.getElementById("word-list");
-        var randomWords = getValues(easy, numWords);
+        var randomWords = getValues(difficulty, numWords);
         randomWords.forEach((word) => {
             var li = document.createElement("li");
             li.innerText = word;
             wordList.appendChild(li);
         });
+
+        password = getValues(randomWords, 1)[0];
+        setNumGuess(numGuess);
+
+        wordList.addEventListener("click", gamePlay);
+    }
+
+    function setNumGuess(guesses){
+        numGuess = guesses
+        document.getElementById("guess-count").innerText = `You have ${numGuess} attempts left...`
+    }
+
+    function gamePlay(choice){
+        if(choice.target.tagName === "LI" && !choice.target.classList.contains("guessed")){
+
+            //check selected word against password
+            var guess = choice.target.innerText;
+            var correctLetters = compareWords(guess, password);
+            choice.target.classList.add("guessed");
+            choice.target.innerText = `${choice.target.innerText} : ${correctLetters} correct letters`;
+            setNumGuess(numGuess - 1);
+        }
+        //Check if game is over
+        var hackAgain = document.getElementById("hack-again");
+        var gameBoard = document.getElementById('game-board');
+        if (correctLetters === password.length){
+            toggleClasses(gameBoard, 'hide', 'show');
+            toggleClasses(hackAgain, 'hide', 'show');
+            document.getElementById("winner").innerText = `${password}: Password accepted`
+            this.removeEventListener('click', gamePlay);
+        } else if (numGuess === 0) {
+            toggleClasses(gameBoard, 'hide', 'show');
+            toggleClasses(hackAgain, 'hide', 'show');
+            document.getElementById("loser").innerText = `Too many attempts, password locked`
+            this.removeEventListener('click', gamePlay);
+        }
+    }
+
+    function compareWords(word1, word2){
+        var count = 0;
+        for(let i = 0; i < word1.length; i++){
+            if(word1[i] === word2[i]) {
+                count++;
+            }
+        }
+        return count;
     }
 });
     

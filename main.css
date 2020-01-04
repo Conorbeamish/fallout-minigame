@@ -1,7 +1,16 @@
+li{
+    cursor: pointer;
+}
+
 .show {
     display: inline;
 }
 
 .hide {
-  
+  display: none;
+}
+
+.guessed {
+    color: grey;
+    cursor: auto;
 }
