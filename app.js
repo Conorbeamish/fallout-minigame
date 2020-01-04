@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
     start.addEventListener("click", () => {
         toggleClasses(document.getElementById('start-game'), 'hide', 'show');
         toggleClasses(document.getElementById('game-board'), 'hide', 'show');
-        // checkDifficulty();
+        checkDifficulty();
         startGame();
     });
     
@@ -29,16 +29,22 @@ document.addEventListener("DOMContentLoaded", function(){
         return arrayCopy
     }
 
-    // function checkDifficulty(){
-    //     var difficultySelector = document.getElementsByName("difficulty");
-    //         for(let i = 0; i < difficultySelector.length; i++){
-    //             if(difficultySelector[i].checked) {
-    //                 difficulty = difficultySelector.value;
-    //             }
-    //         }
-    //     console.log(difficulty)
-    //     return difficulty;
-    // }
+    function checkDifficulty(){
+        var difficultySelector = document.getElementsByName("difficulty");
+        for(i = 0; i < difficultySelector.length; i++){
+            if(difficultySelector[i].checked){
+                difficulty = difficultySelector[i].value;
+            }
+        }
+        if(difficulty === "hard"){
+            difficulty = hard
+        } else if(difficulty === "medium"){
+            difficulty = medium
+        } else {
+            difficulty = easy
+        }
+        toggleClasses(document.getElementById("difficulty"), 'hide', 'show');
+    }
 
     function startGame(){
         var wordList = document.getElementById("word-list");
