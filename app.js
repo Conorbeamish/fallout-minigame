@@ -88,14 +88,18 @@ document.addEventListener("DOMContentLoaded", function(){
         //Check if game is over
         var hackAgain = document.getElementById("hack-again");
         var gameBoard = document.getElementById('game-board');
+        var winImage = document.getElementById("win-image");
+        var loseImage = document.getElementById("win-image");
         if (correctLetters === password.length){
             toggleClasses(gameBoard, 'hide', 'show');
             toggleClasses(hackAgain, 'hide', 'show');
-            document.getElementById("winner").innerText = `${password}: Password accepted`
+            toggleClasses(winImage, 'hide', 'show');
+            document.getElementById("winner").innerText = `Password accepted: ${password}`
             this.removeEventListener('click', gamePlay);
         } else if (numGuess === 0) {
             toggleClasses(gameBoard, 'hide', 'show');
             toggleClasses(hackAgain, 'hide', 'show');
+            toggleClasses(loseImage, 'hide', 'show');
             document.getElementById("loser").innerText = `Too many attempts, password locked`
             this.removeEventListener('click', gamePlay);
         }
