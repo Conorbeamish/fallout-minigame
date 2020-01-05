@@ -10,31 +10,36 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Courier+Prime:400,400i,700,700i&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Fallout Minigame</h1>
-        <div class="show" id="difficulty">
-            <input type="radio" id="easy" name="difficulty" value="easy" checked="true">
-            <label for="easy">Easy</label>
+        <section class="hacking-terminal">
+            <h1>Fallout Minigame</h1>
+            <div class="show difficulty-selector" id="difficulty">
+                <input type="radio" id="easy" name="difficulty" value="easy" checked="true">
+                <label class="click" for="easy">Easy</label>
 
-            <input type="radio" id="medium" name="difficulty" value="medium">
-            <label for="Medium">Medium</label>
+                <input type="radio" id="medium" name="difficulty" value="medium">
+                <label class="click" for="medium">Medium</label>
 
-            <input type="radio" id="hard" name="difficulty" value="hard">
-            <label for="hard">Hard</label>
-        </div>
-        <button class="show" id="start-game">Play</button>
+                <input type="radio" id="hard" name="difficulty" value="hard">
+                <label class="click" for="hard">Hard</label>
+            </div>
+            <button class="show click" id="start-game">Play</button>
 
-        <div class = "hide" id="game-board">
-            <ul id="word-list">
+            <div class = "hide" id="game-board">
+                <ul id="word-list">
 
-            </ul>
-            <div id="guess-count"></div>
-        </div>
+                </ul>
+                <div id="guess-count"></div>
+                <div id="past-guesses"></div>
+            </div>
 
-        <div id= "winner"></div>
-        <div id= "loser"></div>
-        <a class = "hide" id = "hack-again" href="index.html">Hack Again</a>
+            <div id= "winner"></div>
+            <div id= "loser"></div>
+            <a class = "hide click" id = "hack-again" href="index.html">Hack Again</a>
+
+        </section>
 
         <script src="words.js"></script>
         <script src="app.js"></script>

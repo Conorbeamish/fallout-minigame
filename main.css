@@ -1,5 +1,87 @@
+body{
+    margin: 0;
+    background-color: rgb(229, 229, 192) ;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
 li{
     cursor: pointer;
+}
+
+h1 {
+    margin: none;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    border: 1px solid rgb(32, 194, 14);
+    padding: 0 5px 0 5px;
+}
+
+button{
+    text-decoration: none;
+    border: 1px solid rgb(32, 194, 14);
+    font-family: 'Courier Prime', monospace;
+    font-size: 1rem;
+}
+
+
+.difficulty-selector input[type= "radio"]{
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.difficulty-selector input[type= "radio"]:checked + label{
+    background-color: rgb(32, 194, 14);
+    color: rgba(15, 32, 15, 1) ;
+}
+
+label{
+    padding: 0 5px 0 5px;
+}
+
+.click {
+    background-color: rgba(15, 32, 15, 1);
+    color: rgb(32, 194, 14);
+}
+
+.click:hover {
+    background-color: rgb(32, 194, 14);
+    color: rgba(15, 32, 15, 1);
+    cursor: pointer;
+}
+
+li {
+    background-color: rgba(15, 32, 15, 1);
+    color: rgb(32, 194, 14);
+    display: inline-block;
+    padding: 0 5px 0 5px;
+}
+
+li:hover {
+    background-color: rgb(32, 194, 14);
+    color: rgba(15, 32, 15, 1);
+    cursor: pointer;
+}
+
+.hacking-terminal{
+    border-radius: 25px;
+    border: 1px solid black;
+    font-family: 'Courier Prime', monospace;
+    letter-spacing: 2px;
+    height: 95vh;
+    width: 90%;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+    color: rgb(32, 194, 14) ;
+    background-color: rgba(15, 32, 15, 1);
+
 }
 
 .show {
@@ -11,6 +93,12 @@ li{
 }
 
 .guessed {
+    color: grey;
+    cursor: auto;
+}
+
+.guessed:hover{
+    background-color:rgba(15, 32, 15, 1);
     color: grey;
     cursor: auto;
 }

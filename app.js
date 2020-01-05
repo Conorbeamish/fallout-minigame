@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const numWords = 5;
-    var numGuess = 3;
+    const numWords = 8;
+    var numGuess = 4;
     var password = " ";
     var difficulty = easy;
    
@@ -51,8 +51,12 @@ document.addEventListener("DOMContentLoaded", function(){
         var randomWords = getValues(difficulty, numWords);
         randomWords.forEach((word) => {
             var li = document.createElement("li");
-            li.innerText = word;
+            var span = document.createElement("span");
+            var asciiText = getValues(ascii, 1);
+            li.innerText = `${word}`;
             wordList.appendChild(li);
+            span.innerText = ` ${asciiText} `
+            wordList.appendChild(span);
         });
 
         password = getValues(randomWords, 1)[0];
@@ -63,7 +67,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
     function setNumGuess(guesses){
         numGuess = guesses
-        document.getElementById("guess-count").innerText = `You have ${numGuess} attempts left...`
+        document.getElementById("guess-count").innerText = "Attempts remaining: "
+        //Shows a solid block for each remaining guess
+        for(i = 0; i < numGuess; i++){
+            document.getElementById("guess-count").innerHTML += `&#9608`
+        }
+        
     }
 
     function gamePlay(choice){
@@ -73,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function(){
             var guess = choice.target.innerText;
             var correctLetters = compareWords(guess, password);
             choice.target.classList.add("guessed");
-            choice.target.innerText = `${choice.target.innerText} : ${correctLetters} correct letters`;
+            document.getElementById("past-guesses").innerHTML += `${choice.target.innerText} : ${correctLetters} correct letters <br />`;
             setNumGuess(numGuess - 1);
         }
         //Check if game is over
