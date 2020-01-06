@@ -16,4 +16,11 @@ Players can select a harder difficulty which increases the length of the words.
 
 =====================================================
 
+TODO
+
+Add Help menu
+Fix accessibility issues eg tab to words
+
+=====================================================
+
 Author: Conor Beamish 
