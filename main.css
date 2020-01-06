@@ -23,12 +23,24 @@ a{
     padding: 0 5px 0 5px;
 }
 
+a:focus{
+    background-color: rgb(32, 194, 14);
+    color: rgba(15, 32, 15, 1);
+    outline: none;
+}
+
 button{
     text-decoration: none;
     border: 1px solid rgb(32, 194, 14);
     font-family: 'Courier Prime', monospace;
     font-size: 1rem;
     padding: 0 5px 0 5px;
+}
+
+button:focus{
+    background-color: rgb(32, 194, 14);
+    color: rgba(15, 32, 15, 1);
+    outline: none;
 }
 
 
@@ -63,14 +75,15 @@ label{
     cursor: pointer;
 }
 
-li {
+button {
     background-color: rgba(15, 32, 15, 1);
     color: rgb(32, 194, 14);
     display: inline-block;
     padding: 0 5px 0 5px;
+    border: none;
 }
 
-li:hover {
+button:hover {
     background-color: rgb(32, 194, 14);
     color: rgba(15, 32, 15, 1);
     cursor: pointer;
@@ -103,6 +116,12 @@ li:hover {
 }
 
 .guessed:hover{
+    background-color:rgba(15, 32, 15, 1);
+    color: grey;
+    cursor: auto;
+}
+
+.guessed:focus{
     background-color:rgba(15, 32, 15, 1);
     color: grey;
     cursor: auto;

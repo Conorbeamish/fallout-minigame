@@ -50,11 +50,11 @@ document.addEventListener("DOMContentLoaded", function(){
         var wordList = document.getElementById("word-list");
         var randomWords = getValues(difficulty, numWords);
         randomWords.forEach((word) => {
-            var li = document.createElement("li");
+            var btn = document.createElement("BUTTON");
             var span = document.createElement("span");
             var asciiText = getValues(ascii, 1);
-            li.innerText = `${word}`;
-            wordList.appendChild(li);
+            btn.innerText = `${word}`;
+            wordList.appendChild(btn);
             span.innerText = ` ${asciiText} `
             wordList.appendChild(span);
         });
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     function gamePlay(choice){
-        if(choice.target.tagName === "LI" && !choice.target.classList.contains("guessed")){
+        if(choice.target.tagName === "BUTTON" && !choice.target.classList.contains("guessed")){
 
             //check selected word against password
             var guess = choice.target.innerText;
