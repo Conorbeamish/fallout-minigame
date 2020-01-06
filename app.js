@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var hackAgain = document.getElementById("hack-again");
         var gameBoard = document.getElementById('game-board');
         var winImage = document.getElementById("win-image");
-        var loseImage = document.getElementById("win-image");
+        var loseImage = document.getElementById("lose-image");
         if (correctLetters === password.length){
             toggleClasses(gameBoard, 'hide', 'show');
             toggleClasses(hackAgain, 'hide', 'show');

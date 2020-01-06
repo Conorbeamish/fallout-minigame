@@ -25,6 +25,10 @@
     
                     <input type="radio" id="hard" name="difficulty" value="hard">
                     <label class="click" for="hard">Hard</label>
+                    <img class="image" src="images/landing-img.png" alt="Hacker">
+                    <p>
+                        Guess the password, each guess will have a score indicating how many letters are in correct position compared to the password.
+                    </p>
                     <p>
                         <button class="show click" id="start-game">Play</button>
                     </p>
@@ -34,22 +38,22 @@
             
 
             <div class = "hide" id="game-board">
-                <p>Robco Industries (TM) Termlink Protocol</p>
-                <p>ENTER PASSWORD NOW</p>
-                <ul id="word-list">
+                <div class="padding">
+                    <p>Robco Industries (TM) Termlink Protocol</p>
+                    <p>ENTER PASSWORD NOW</p>
+                    <ul id="word-list">
 
-                </ul>
-                <p id="guess-count"></p>
-                <div id="past-guesses"></div>
+                    </ul>
+                    <p id="guess-count"></p>
+                    <div id="past-guesses"></div>
+                </div>
             </div>
 
             <div class="container">
                 <p id= "winner"></p>
                 <p id= "loser"></p>
-                <div class="img-container">
-                    <img class="hide pipboy" src="images/kisspng-fallout-4-fallout-3-sticker-decal-vitaly-amp-apos-s-hobbies-5b9552fadcba09.2434040915365127629041.png" id="win-image">
-                    <img class="hide pipboy" src="images/kisspng-fallout-4-fallout-3-sticker-decal-vitaly-amp-apos-s-hobbies-5b9552fadcba09.2434040915365127629041.png" id="lose-image">    
-                </div>
+                <img class="hide image" src="images/win-img.png" alt="Pipboy Thumbs Up"id="win-image">
+                <img class="hide image" src="images/lose-img.png" alt="Padlock" id="lose-image"> 
                 <p>
                     <a class = "hide click" id = "hack-again" href="index.html">Hack Again</a>    
                 </p>

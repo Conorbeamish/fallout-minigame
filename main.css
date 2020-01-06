@@ -42,12 +42,10 @@ button{
     color: rgba(15, 32, 15, 1) ;
 }
 
+
 .container{
     text-align: center;
-}
-
-.img-container{
-    height: 50vh;
+    padding: 0 5% 0 5%;
 }
 
 label{
@@ -86,7 +84,6 @@ li:hover {
     height: 95vh;
     width: 90%;
     margin: 10px auto 10px auto;
-    padding: 10px;
     color: rgb(32, 194, 14) ;
     background-color: rgba(15, 32, 15, 1);
 
@@ -111,7 +108,22 @@ li:hover {
     cursor: auto;
 }
 
-.pipboy {
-    height: 100%;
+.image {
+    height: 50vh;
     object-fit: contain;
+    padding: 5%;
+}
+
+.padding {
+    padding: 5%;
+}
+
+@media only screen and (max-width: 600px){
+    .image {
+        height: 40vh;
+    }
+
+    body{
+        font-size: .8rem;
+    }
 }
