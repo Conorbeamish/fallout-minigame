@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", function(){
     function startGame(){
         var wordList = document.getElementById("word-list");
         var randomWords = getValues(difficulty, numWords);
+        var help = document.getElementById("help");
+        var helpBoard = document.getElementById("help-board");
+        var helpClose = document.getElementById("help-close");
+
+        //Populate game board
         randomWords.forEach((word) => {
             var btn = document.createElement("BUTTON");
             var span = document.createElement("span");
@@ -59,10 +64,13 @@ document.addEventListener("DOMContentLoaded", function(){
             wordList.appendChild(span);
         });
 
+        //Set Password
         password = getValues(randomWords, 1)[0];
         setNumGuess(numGuess);
 
         wordList.addEventListener("click", gamePlay);
+        help.addEventListener("click", () => {toggleClasses(helpBoard, "hide", "show")} );
+        helpClose.addEventListener("click", () => {toggleClasses(helpBoard, "hide", "show")});
     }
 
     function setNumGuess(guesses){
@@ -72,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function(){
         for(i = 0; i < numGuess; i++){
             document.getElementById("guess-count").innerHTML += `&#9608`
         }
-        
     }
 
     function gamePlay(choice){

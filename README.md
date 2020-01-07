@@ -6,7 +6,7 @@ A clone of the terminal hacking game in Fallout
 
 GAMEPLAY
 
-Players are given a list of words and have 3 tries to select one word form the list which is pre-determined as the password.
+Players are given a list of words and have 3 tries to select one word from the list which is pre-determined as the password.
 
 The words are hidden in jumbled text and must be found and clicked to make a guess. 
 
@@ -19,7 +19,6 @@ Players can select a harder difficulty which increases the length of the words.
 TODO
 
 Add Help menu
-Fix accessibility issues eg tab to words
 
 =====================================================
 
